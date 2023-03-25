@@ -43,7 +43,7 @@ async function getdata(lat,long) {
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=c180f058337d29443bce4c8fbd3a54f6`);
     const data = await response.json();
-    const temperature = data.main.temp;
+    const temperature = ((data.main.temp)-273).toFixed(2);
     alert(`The temperature is ${temperature}°C`);
   } catch (error) {
     console.error(error);
