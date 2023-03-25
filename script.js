@@ -13,9 +13,11 @@ document.body.append(container);
 
 
 async function foo(){
+  
   let result =await fetch("https://restcountries.com/v2/all");
   let result1 = await result.json();
   for(var i = 0; i < result1.length ; i++)
+  try{
 {
     row.innerHTML +=
     `<div class = "col-md-4 col-sm-12">
@@ -31,8 +33,9 @@ async function foo(){
     <button class="btn btn-primary" onclick="getdata(${result1[i].latlng[0]},${result1[i].latlng[1]})">Click for Weather</button>
   </div>
   </div>
-    `;
-  }
+    `;}}catch(error){
+      console.log(error);
+    }
 }
 
 
